@@ -1,7 +1,7 @@
 import curses
 import curses.textpad
-
 import sys
+from exception import error as err
 
 class FrontEnd:
 
