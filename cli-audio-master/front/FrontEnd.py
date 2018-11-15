@@ -8,7 +8,9 @@ class FrontEnd:
     def __init__(self, player):
         self.player = player
 
-        //INSERT INVALID AMOUNT OF ARGS EXCEPTION
+        //INVALID AMOUNT OF ARGS EXCEPTION
+        if len(sys.argv) < 2:
+           raise err.CLI_Audio_Exception('Incorrect number of arguments yo!)
 
         self.player.play(sys.argv[1])
         curses.wrapper(self.menu)
@@ -30,11 +32,12 @@ class FrontEnd:
             elif c == ord('p'):
                 self.player.pause()
             elif c == ord('c'):
-                self.changeSong()
-                self.updateSong()
-
                 //COULDNT FIND UPDATED SONG
-
+                try:
+                    self.changeSong()
+                    self.updateSong()
+                except err.CLI_Audio_File_Exception:
+                    print('Could not change songs')
                 self.stdscr.touchwin()
                 self.stdscr.refresh()
     
@@ -63,4 +66,4 @@ class FrontEnd:
 
     //PLAY FUNCTION
     //LIST LIBRARY
-    //ANY GETTERS OR SETTORS
+    //ANY GETTERS OR SETTERS

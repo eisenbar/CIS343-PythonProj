@@ -13,7 +13,7 @@ class Player:
 
     def getCurrentSong(self):
         if self.paused:
-              return self.currentSong + ' Stop Hammer Time! (paused)'
+              return self.currentSong + ' HEY I am paused!'
         return self.currentSong
 
     def pause(self):
@@ -26,9 +26,12 @@ class Player:
 
     def play(self, track):
         self.paused = False
-        self.currentSong = track
 
-        //THIS IS WHERE TO INSERT SONG DOES NOT EXIST EXCEPTION
+        //SONG DOES NOT EXIST EXCEPTION
+        try:
+            self.currentSong = track
+        except err.CLI_Audio_File_Exception:
+            print('The track being played is not found')
 
         self.wf = wave.open(track, 'rb')
 
