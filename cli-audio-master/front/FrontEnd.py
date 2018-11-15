@@ -7,6 +7,9 @@ class FrontEnd:
 
     def __init__(self, player):
         self.player = player
+
+        //INSERT INVALID AMOUNT OF ARGS EXCEPTION
+
         self.player.play(sys.argv[1])
         curses.wrapper(self.menu)
 
@@ -29,6 +32,9 @@ class FrontEnd:
             elif c == ord('c'):
                 self.changeSong()
                 self.updateSong()
+
+                //COULDNT FIND UPDATED SONG
+
                 self.stdscr.touchwin()
                 self.stdscr.refresh()
     
@@ -54,3 +60,7 @@ class FrontEnd:
     def quit(self):
         self.player.stop()
         exit()
+
+    //PLAY FUNCTION
+    //LIST LIBRARY
+    //ANY GETTERS OR SETTORS

@@ -3,6 +3,7 @@
 import pyaudio
 import wave
 import time
+from exception import error as err
 
 class Player:
     def __init__(self):
@@ -11,6 +12,8 @@ class Player:
         self.position = 0
 
     def getCurrentSong(self):
+        if self.paused:
+              return self.currentSong + ' Stop Hammer Time! (paused)'
         return self.currentSong
 
     def pause(self):
@@ -24,6 +27,9 @@ class Player:
     def play(self, track):
         self.paused = False
         self.currentSong = track
+
+        //THIS IS WHERE TO INSERT SONG DOES NOT EXIST EXCEPTION
+
         self.wf = wave.open(track, 'rb')
 
         # instantiate PyAudio (1)
