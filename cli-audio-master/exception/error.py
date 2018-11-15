@@ -1,4 +1,4 @@
 class argSizeError(Exception):
-     print 'Invalid amount of arguments'
+     print('Invalid amount of arguments')
 
 
