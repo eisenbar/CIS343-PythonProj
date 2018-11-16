@@ -27,7 +27,7 @@ class Player:
     def play(self, track):
         self.paused = False
 
-        //SONG DOES NOT EXIST EXCEPTION
+        # SONG DOES NOT EXIST EXCEPTION
         try:
             self.currentSong = track
         except err.CLI_Audio_File_Exception:
